@@ -25,16 +25,8 @@ function getInfo() {
            renderAvatar(res.data)
         },
         // 无论成功还是失败都会调用comelete函数
-        complete: function (res) {
-            console.log(res);
-            if (res.responseJSON.status === 1 && res.responseJSON.message === '身份认证失败！') {
-                localStorage.removeItem('token')
-                // 重新跳转到登录界面
-                location.href = '/newlogin.html'
-               
-
-            }
-        }
+      
+        
     })
 }
 
