@@ -20,20 +20,21 @@ $(function() {
           ] ,
         //   校验两次密码
         repwd: function(value) {
-         var str =  $('.reg-box [name = password').val()
+         var str =  $('.reg-box [name = password]').val()
          if (str !== value) {
             return '两次密码不一致'
          }
         }
     })
-    var data = {
-        username: $('#form_reg [name = username]').val(),
-        password: $('#form_reg [name = password]').val()
-    }
+    
     $('#form_reg').on('submit',function(e) {
         e.preventDefault();
+        var data = {
+            username: $('#form_reg [name = username]').val(),
+            password: $('#form_reg [name = password]').val()
+        }
         $.post('/api/reguser',data,function(res) {
-            if (res.status != 0) {
+            if (res.status !== 0) {
                 return layer.msg(res.message)
             }
             layer.msg('注册成功，请登录')
